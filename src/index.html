@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+
+<title>Sample calculator</title>
+
+<script type="text/javascript">
+/* recalculate is called whenever any of aaa, bbb or ccc is changed. */
+function recalculate()
+{
+    var aaa = parseFloat(document.getElementById("aaa").value);
+    var bbb = parseFloat(document.getElementById("bbb").value);
+    var ccc = parseFloat(document.getElementById("ccc").value);
+    var divisor = parseFloat(document.getElementById("divisor").value);
+
+    if (document.getElementById("extra").checked)
+        result = (aaa + bbb + ccc) / divisor;
+    else
+        result = (aaa + bbb) / divisor;
+    document.getElementById("result").value = result;
+}
+
+function toggleExtra()
+{
+    var extra_stuff = document.getElementById("extra-stuff");
+    if (document.getElementById("extra").checked)
+        extra_stuff.style.visibility = "visible";
+    else
+        extra_stuff.style.visibility = "hidden";
+    recalculate();
+}
+</script>
+
+</head>
+<body>
+
+<h1>Simple calculator</h1>
+
+(
+<input id="aaa" type="text" onChange="return recalculate();" size=7>
++
+<input id="bbb" type="text" onChange="return recalculate();" size=7>
+<span id="extra-stuff">
++
+<input id="ccc" type="text" onChange="return recalculate();" size=7>
+</span>
+) /
+<input id="divisor" type="text" onChange="return recalculate();" size=7>
+=
+<input id="result" type="text" size=7 readonly>
+<p>
+Show extra stuff:
+<input id="extra" type="checkbox" onChange="return toggleExtra();" 
+ checked>
+
+</body>
+</html>
