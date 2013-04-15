@@ -32,10 +32,21 @@ function toggleExtra()
         extra_stuff.style.visibility = "hidden";
     recalculate();
 }
+
+function initialize_variables()
+{
+    document.getElementById("aaa").value = 111;
+    document.getElementById("bbb").value = 222;
+    document.getElementById("ccc").value = 333;
+    document.getElementById("divisor").value = 2;
+
+    recalculate();
+}
 </script>
 
 </head>
-<body>
+
+<body onload="initialize_variables();">
 
 <h1>Simple calculator</h1>
 
